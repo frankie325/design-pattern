@@ -46,6 +46,7 @@ Window.prototype.getName = function () {
 // let w1 = new CreateWindow();
 // let w2 = new CreateWindow();
 
+// 将构造函数作为参数传递
 CreateSingle = function (Constructor) {
     let instance;
     return function () {
@@ -61,10 +62,10 @@ function Client(name) {
 }
 
 let Win = CreateSingle(Window);
-let w1 = new Win();
-let w2 = new Win();
-console.log(w1 === w2);
+let w1 = new Win("w1");
+let w2 = new Win("w2");
+console.log(w1 === w2); //true
 let Cli = CreateSingle(Client);
-let c1 = new Cli();
-let c2 = new Cli();
-console.log(c1 === c2);
+let c1 = new Cli("c1");
+let c2 = new Cli("c2");
+console.log(c1 === c2); //true
